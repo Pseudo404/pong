@@ -48,15 +48,15 @@ class Ball:
         self.rect = self.image.get_rect()
         self.rect.x = 50
         self.rect.y = 50
-        self.speed_x = 400.  # Vitesse de la balle
-        self.speed_y = 400.
+        self.speed_x = 400 # vitesse de la balle
+        self.speed_y = 400
 
 j1 = J1(j1_img)
 j2 = J2(j2_img)
 ball = Ball(ball_img)
 
 start_time = time.time()
-move_cooldown = 0.2  # Temps de pause entre les mouvements des raquettes
+move_cooldown = 0.2 # temps entre les mouvements de raquettes // variable plus utilisé
 aug = 0.008
 
 while run:
@@ -129,12 +129,10 @@ while run:
     if not (0 <= ball.rect.y <= h - 50):
         ball.speed_y = -ball.speed_y
 
-    # Ball and wall left
     if ball.rect.x <= 0:
         score_1 += 1
         ball.rect.x = w // 2
 
-    # Ball and wall right
     if ball.rect.x >= w - 50:
         score_0 += 1
         ball.rect.x = w // 2
